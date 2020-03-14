@@ -2,6 +2,8 @@ import pygame
 import random
 from pygame.sprite import Sprite
 
+"""This is the targets class which inherits from the Sprites class from pygame.sprite"""
+
 
 class Target(Sprite):
 
@@ -24,11 +26,13 @@ class Target(Sprite):
         self.delay = 1
 
     def draw_target(self):
+        """draw the target onto the screen"""
         outer_circle = pygame.draw.circle(self.screen, self.red_color, (self.x, self.y), self.outer_radius, 2)
         middle_circle = pygame.draw.circle(self.screen, self.white_color, (self.x, self.y), self.middle_radius, 2)
         inner_circle = pygame.draw.circle(self.screen, self.red_color, (self.x, self.y), self.inner_radius)
 
     def update(self):
+        """update the movement of the target as time goes on"""
         self.draw_target()
         if self.time_limit > self.delay > 0:
             self.outer_radius += self.radius_speed_factor
